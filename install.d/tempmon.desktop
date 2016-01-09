@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/tempmon 70 65
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[pt_BR]=TempMon
+Name=TempMon
+Comment[pt_BR]=Controlador de Ventoinhas
+Comment=Controlador de Ventoinhas

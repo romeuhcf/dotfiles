@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+def get_level(temp)
+  return 2 if temp > ARGV[0].to_i
+  return 1 if temp > ARGV[1].to_i
+  return 0
+end
+if ARGV.count != 2
+	puts "usage: #{$0} <high_temp> <medium_temp>"
+	exit 1
+end 
+$old_level = '?'
+loop do
+  temp = %x{ i8kctl temp }.strip.to_i
+  new_level = get_level(temp)
+  puts "Setting level #{$old_level}->#{new_level} at #{temp}ºC" if $old_level != new_level
+  %x{ i8kfan #{new_level} #{new_level} }
+  $old_level = new_level
+  sleep 5
+end
+
